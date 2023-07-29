@@ -1,4 +1,8 @@
-import logo from './logo.svg';
+import logo from './logo.png';
+
+import pokedex from './Pokedex.js';
+import Pokecard from './Pokecard.js';
+
 import './App.css';
 
 function App() {
@@ -6,18 +10,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+
+      <div className="App-pokedex">
+        {pokedex.map((pokemon) => (
+          <Pokecard
+            name={pokemon.name}
+            imgId={pokemon.id}
+            type={pokemon.type}
+            xp={pokemon.base_experience}
+          />
+        ))}
+      </div>
     </div>
   );
 }
